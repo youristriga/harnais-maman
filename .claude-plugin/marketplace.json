@@ -1,0 +1,13 @@
+{
+  "name": "harnais-maman",
+  "owner": {
+    "name": "Youri Striga"
+  },
+  "plugins": [
+    {
+      "name": "memoire-vive",
+      "source": "./",
+      "description": "Second cerveau personnel sur Obsidian : mémoire automatique, journal quotidien, projets, règles apprises. Onboarding guidé par /demarrage."
+    }
+  ]
+}

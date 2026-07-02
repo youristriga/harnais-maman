@@ -1,0 +1,9 @@
+{
+  "name": "memoire-vive",
+  "description": "Second cerveau personnel sur Obsidian : mémoire automatique, journal quotidien, projets et règles apprises, avec onboarding guidé. Conçu pour être simple, robuste et sans dépendance technique.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Youri Striga",
+    "email": "youri.striga@esaltarefood.com"
+  }
+}
