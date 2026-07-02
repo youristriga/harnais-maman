@@ -4,6 +4,8 @@
 - **Assistant** : {{ASSISTANT}}
 - **Ton souhaité** : {{TON}}
 - **Activité professionnelle** : {{ACTIVITE_PRO}}
+- **Usages principaux** : {{USAGES}}
+- **Rappels spontanés** : {{RAPPELS}}
 - **Ce qui compte pour elle** : {{PRIORITES}}
 
 ## Notes

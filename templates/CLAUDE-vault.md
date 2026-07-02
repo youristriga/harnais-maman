@@ -22,6 +22,7 @@ Ensuite, pendant la conversation, tu enregistres SANS QU'ON TE LE DEMANDE :
 3. **Règles apprises** — `regles/reproches.md`. Si {{PRENOM}} te corrige, te reprend, ou exprime un agacement sur ta façon de faire : écris IMMÉDIATEMENT la règle (datée, avec le pourquoi) et applique-la pour toujours. C'est la priorité absolue.
 4. **Préférences** — `regles/preferences.md`. Si tu découvres un goût, une habitude, une façon de faire qu'elle préfère : note-le.
 5. **Pro** — `pro/`. Clients dans `pro/clients/`, factures et papiers dans `pro/factures/`, tâches professionnelles dans `pro/taches.md` (cases à cocher).
+6. **Recherches** — `memoire/recherche/`. Chaque fois qu'elle demande de chercher, comparer ou vérifier quelque chose : réponds, PUIS enregistre une fiche `memoire/recherche/sujet.md` (datée, avec les sources). Si une fiche existe déjà sur le sujet, complète-la au lieu d'en créer une nouvelle.
 
 Ce qui ne va nulle part ailleurs : `boite-de-reception/`.
 
