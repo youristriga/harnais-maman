@@ -49,59 +49,6 @@ fi
 
 section "Projets en cours" "$VAULT/projets/_index.md" 2000
 section "Tâches pro" "$VAULT/pro/taches.md" 1200
-section "Rappels & signaux appris" "$VAULT/regles/signaux.md" 1500
-
-# --- Boucle d'intelligence : journal des sessions + proposition périodique ---
-# Tout est en pur bash, sans dépendance. Silencieux si l'espace « moi/assistant »
-# n'existe pas encore (rétro-compatible avec les installations d'avant).
-ASSIST_DIR="$VAULT/moi/assistant"
-mkdir -p "$ASSIST_DIR" 2>/dev/null
-SLOG="$ASSIST_DIR/sessions.log"
-SETAT="$ASSIST_DIR/etat-intelligence.txt"
-printf '%s\n' "$(date '+%F %H:%M')" >> "$SLOG" 2>/dev/null
-
-TOTAL=0
-[ -f "$SLOG" ] && TOTAL="$(wc -l < "$SLOG" 2>/dev/null | tr -d ' ')"
-[ -z "$TOTAL" ] && TOTAL=0
-
-DPASSE=""; BASE=0
-if [ -f "$SETAT" ]; then
-  DPASSE="$(sed -n 's/^derniere-passe=//p' "$SETAT" | head -n1)"
-  BASE="$(sed -n 's/^sessions-a-la-derniere-passe=//p' "$SETAT" | head -n1)"
-fi
-[ -z "$BASE" ] && BASE=0
-DEPUIS=$(( TOTAL - BASE )); [ "$DEPUIS" -lt 0 ] && DEPUIS=0
-
-JOURS=999
-if [ -n "$DPASSE" ]; then
-  TN="$(date +%s)"
-  TP="$(date -j -f "%Y-%m-%d" "$DPASSE" +%s 2>/dev/null || date -d "$DPASSE" +%s 2>/dev/null)"
-  [ -n "$TP" ] && JOURS=$(( (TN - TP) / 86400 ))
-fi
-
-NUDGE=0
-if [ ! -f "$SETAT" ]; then
-  # Jamais de passe encore : on attend un minimum d'usage réel avant de proposer.
-  [ "$TOTAL" -ge 5 ] && NUDGE=1
-else
-  { [ "$JOURS" -ge 7 ] || [ "$DEPUIS" -ge 10 ]; } && NUDGE=1
-fi
-
-if [ "$NUDGE" = "1" ]; then
-  # Throttle : au plus une proposition par jour, même sur plusieurs sessions.
-  NMARK="$ASSIST_DIR/dernier-nudge.txt"
-  LASTN=""; [ -f "$NMARK" ] && LASTN="$(head -n1 "$NMARK")"
-  if [ "$LASTN" != "$TODAY" ]; then
-    printf '%s\n' "$TODAY" > "$NMARK" 2>/dev/null
-    echo ""
-    echo "--- PROPOSITION D'AMÉLIORATION (à formuler à l'utilisatrice, gentiment, UNE fois) ---"
-    echo "Ça fait un moment qu'on avance ensemble. Propose-lui EN UNE PHRASE simple, sans jargon,"
-    echo "de faire ton « point pour progresser » (tu relis tout ce que vous avez fait et tu deviens"
-    echo "plus malin), par ex. : « Dis, ça fait un moment — je peux prendre 2 minutes pour devenir"
-    echo "un peu plus malin avec tout ce qu'on a fait ? ». Si elle accepte, lance le skill /progres."
-    echo "Si elle décline ou est occupée, n'insiste pas : ne le repropose pas aujourd'hui."
-  fi
-fi
 
 echo ""
 echo "=== FIN MÉMOIRE ==="
