@@ -52,7 +52,22 @@ claude plugin install memoire-vive@harnais-maman
 3. Une correction (« ne fais plus ça », « je préfère que… ») devient une règle permanente.
 4. Dire au revoir → tout est mis en ordre pour demain.
 
-Commandes optionnelles : `/journee`, `/projet`, `/rangement`, `/cloture`, `/aide`.
+Commandes optionnelles : `/journee`, `/projet`, `/rangement`, `/progres`, `/cloture`, `/aide`.
+
+## Boucle d'auto-amélioration (`/progres`)
+
+De temps en temps (au bout de ~7 jours ou ~10 sessions), l'assistant **propose lui-même** de faire son « point pour progresser ». L'utilisatrice n'a qu'à dire oui ; elle ne fait ensuite que **valider**. La passe :
+
+1. **Audite et répare** l'espace mémoire (dossiers/fichiers manquants recréés, notes égarées et projets hors index proposés au rangement) — puis se re-vérifie.
+2. **Relit** la mémoire écrite **et** les vraies conversations (100 % local, jamais rien envoyé dehors), en incrémental (seulement le nouveau depuis la dernière passe).
+3. **En tire** des règles, des préférences et des **rappels automatiques** (`regles/signaux.md`, réinjectés à chaque démarrage) + enrichit le profil.
+4. **Fait valider** en un écran simple, **applique**, puis **re-vérifie** que tout est bien en place.
+
+Deux niveaux d'effet :
+- **Immédiat, sans réinstaller** : règles, préférences, rappels, profil → écrits dans son dossier, réinjectés par le hook dès la session suivante.
+- **Nécessite une mise à jour du plugin** : les idées d'automatismes qui demandent un nouveau raccourci sont déposées dans `moi/assistant/idees-pour-youri.md` (côté admin).
+
+La mécanique (audit, réparation, minutage, journal) vit dans des scripts bash déterministes `skills/progres/lib/*.sh`, couverts par un banc de test end-to-end : `bash tests/run.sh` (39 vérifications).
 
 ## Maintenance à distance (côté admin)
 

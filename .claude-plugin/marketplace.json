@@ -7,7 +7,7 @@
     {
       "name": "memoire-vive",
       "source": "./",
-      "description": "Second cerveau personnel sur Obsidian : mémoire automatique, journal quotidien, projets, règles apprises. Onboarding guidé par /demarrage."
+      "description": "Second cerveau personnel sur Obsidian : mémoire automatique, journal quotidien, projets, règles apprises + auto-amélioration (/progres). Onboarding guidé par /demarrage."
     }
   ]
 }

@@ -25,8 +25,11 @@ Explique en langage courant, adapté à une personne non technicienne. Structure
 | `/journee` | Vider sa tête : je trie et je range |
 | `/projet` | Le point sur tous les projets |
 | `/rangement` | Grand ménage de la mémoire |
+| `/progres` | Je relis tout ce qu'on a fait et je deviens plus malin (je te propose, tu valides) |
 | `/cloture` | Terminer la session proprement |
 | `/aide` | Ce mode d'emploi |
+
+De temps en temps, je te proposerai moi-même de faire mon « point pour progresser » : tu n'as qu'à dire oui.
 
 ## 4. Où vivent mes souvenirs
 
